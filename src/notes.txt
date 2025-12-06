@@ -1,0 +1,5 @@
+    *** Day 1 ***
+Secret Number is: 982
+Real Secret Number is: 6106
+
+    *** Day 2 ***

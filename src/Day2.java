@@ -28,7 +28,6 @@ public class Day2 {
     }
 
     private static void detectInvalid(String code) {
-        Boolean isInvalid = false;
         String[] ranges = code.split("-");
         long from = Long.parseLong(ranges[0]);
         long to = Long.parseLong(ranges[1]);
@@ -43,19 +42,9 @@ public class Day2 {
                 }
             }
 
-            //if (isAllSame(stID)) {sumSuperInvalidIDs += nrID;} ;
-
             if (isRepeating(stID)) {sumSuperInvalidIDs += nrID;} ;
 
         }
-    }
-
-    private static boolean isAllSame(String stID) {
-        char first = stID.charAt(0);
-        for (int j = 1; j<stID.length(); j++) {
-            if (first != stID.charAt(j)) { return false; }
-        }
-        return true;
     }
 
     private static boolean isRepeating(String stID) {

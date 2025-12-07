@@ -38,8 +38,7 @@ public class Day2 {
                 if (Objects.equals(iS.substring(0, half), iS.substring(half))) {
                     sumInvalidIDs += i;
                 }
-        }
-
+            }
         }
     }
 }

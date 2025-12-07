@@ -5,6 +5,7 @@ import java.util.Objects;
 
 public class Day2 {
     static long sumInvalidIDs = 0;
+    static long sumSuperInvalidIDs = 0;
 
     public static void findInvalidIDs() {
         String file = "src/input/day2.txt";
@@ -22,23 +23,53 @@ public class Day2 {
             detectInvalid(code);
         }
 
-        System.out.println("Sum of Invalid IDs is: " + sumInvalidIDs);
+        System.out.println("Sum of Invalid IDs is: " + sumInvalidIDs +
+                "\nSum of Super Invalid IDs is: " + sumSuperInvalidIDs);
     }
 
     private static void detectInvalid(String code) {
+        Boolean isInvalid = false;
         String[] ranges = code.split("-");
         long from = Long.parseLong(ranges[0]);
         long to = Long.parseLong(ranges[1]);
 
-        for (long i = from; i <= to; i++) {
-            String iS = Long.toString(i);
+        for (long nrID = from; nrID <= to; nrID++) {
+            String stID = Long.toString(nrID);
 
-            if (iS.length() % 2 == 0) {
-                int half = iS.length() / 2;
-                if (Objects.equals(iS.substring(0, half), iS.substring(half))) {
-                    sumInvalidIDs += i;
+            if (stID.length() % 2 == 0) {
+                int half = stID.length() / 2;
+                if (Objects.equals(stID.substring(0, half), stID.substring(half))) {
+                    sumInvalidIDs += nrID;
                 }
             }
+
+            //if (isAllSame(stID)) {sumSuperInvalidIDs += nrID;} ;
+
+            if (isRepeating(stID)) {sumSuperInvalidIDs += nrID;} ;
+
         }
+    }
+
+    private static boolean isAllSame(String stID) {
+        char first = stID.charAt(0);
+        for (int j = 1; j<stID.length(); j++) {
+            if (first != stID.charAt(j)) { return false; }
+        }
+        return true;
+    }
+
+    private static boolean isRepeating(String stID) {
+        int maxCombinationLength = stID.length()/2;
+        for (int p = 1; p <= maxCombinationLength; p++) {
+            String repeatingSequence = stID.substring(0, p);
+            int repetitions = 2;
+            String comparingSequence = repeatingSequence.repeat(repetitions);
+            while (comparingSequence.length() <= stID.length()) {
+                if (Objects.equals(comparingSequence, stID)) { return true; }
+                repetitions++;
+                comparingSequence = repeatingSequence.repeat(repetitions);
+            }
+        }
+        return false;
     }
 }

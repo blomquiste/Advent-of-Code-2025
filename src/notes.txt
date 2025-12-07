@@ -3,3 +3,5 @@ Secret Number is: 982
 Real Secret Number is: 6106
 
     *** Day 2 ***
+Sum of Invalid IDs is: 24157613387 CORRECT
+Sum of Super Invalid IDs is: 33832678380

@@ -1,9 +1,10 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.Objects;
 
 public class Day2 {
+    static long sumInvalidIDs = 0;
 
     public static void findInvalidIDs() {
         String file = "src/input/day2.txt";
@@ -15,17 +16,30 @@ public class Day2 {
                     "An error occurred while reading the file: "
                             + e.getMessage());
         }
-        String[] codes = line.split(",");
+        String[] codes = (line.split(","));
 
-        for (int i = 0; i < codes.length; i++) {
-            detectInvalid(codes[i]);
+        for (String code : codes) {
+            detectInvalid(code);
         }
 
-        System.out.println("Secret Number is: " + 1 +
-                "\nReal Secret Number is: " + 2);
+        System.out.println("Sum of Invalid IDs is: " + sumInvalidIDs);
     }
 
     private static void detectInvalid(String code) {
+        String[] ranges = code.split("-");
+        long from = Long.parseLong(ranges[0]);
+        long to = Long.parseLong(ranges[1]);
 
+        for (long i = from; i <= to; i++) {
+            String iS = Long.toString(i);
+
+            if (iS.length() % 2 == 0) {
+                int half = iS.length() / 2;
+                if (Objects.equals(iS.substring(0, half), iS.substring(half))) {
+                    sumInvalidIDs += i;
+                }
+        }
+
+        }
     }
 }

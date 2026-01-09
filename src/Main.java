@@ -4,6 +4,9 @@ public class Main {
         //Day1.unlockTheDoor();
 
         /* Day 2 */
-        Day2.findInvalidIDs();
+        //Day2.findInvalidIDs();
+
+        /* Day 3 */
+        Day3.calculateJoltage();
     }
 }

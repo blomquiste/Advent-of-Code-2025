@@ -7,6 +7,7 @@ import java.util.stream.Stream;
 
 public class Day3 {
     public static int joltage = 0;
+    public static int bigJoltage = 0;
 
     public static void calculateJoltage() {
         String file = "src/input/day3.txt";
@@ -14,12 +15,25 @@ public class Day3 {
             String line;
             while ((line = reader.readLine()) != null) {
                 int biggest = line.charAt(0)-48;
-                for (int i = 1; i < line.length(); i++) {
-
+                int index = 0;
+                for (int i = 1; i < line.length()-1; i++) {
+                    if (line.charAt(i)-48 > biggest) {
+                        biggest = line.charAt(i)-48;
+                        index = i;
+                    }
                 }
-                System.out.println(line);
+
+                int secondBiggest = line.charAt(index+1)-48;
+                for (int i = index+1; i < line.length(); i++) {
+                    if (line.charAt(i)-48 > secondBiggest) {
+                        secondBiggest = line.charAt(i)-48;
+                    }
+                }
+
+                /*System.out.println(line);
                 System.out.println(biggest);
-                joltage++;
+                System.out.println(secondBiggest);*/
+                joltage += (biggest*10) + secondBiggest;
             }
         } catch (IOException e) {
             System.out.println(
@@ -27,8 +41,8 @@ public class Day3 {
                             + e.getMessage());
         }
 
-        System.out.println("Sum of Invalid IDs is: " + joltage +
-                "\nSum of Super Invalid IDs is: " + joltage);
+        System.out.println("The maximum 2 battery joltage is: " + joltage +
+                "\nThe 12 battery joltage is: " + bigJoltage);
     }
 
     }

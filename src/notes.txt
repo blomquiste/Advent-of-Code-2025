@@ -2,6 +2,21 @@
 Secret Number is: 982
 Real Secret Number is: 6106
 
+
     *** Day 2 ***
-Sum of Invalid IDs is: 24157613387 CORRECT
+Sum of Invalid IDs is: 24157613387
 Sum of Super Invalid IDs is: 33832678380
+
+
+    *** Day 3 ***
+wrong:
+8.1486822727676E13  = 81486822727676    =  81 486 822 727 676
+1.68794698570517E14 = 168794698570517   = 168 794 698 570 517 CORRECT
+1.68832612922924E14 = 168832612922924   = 168 832 612 922 924
+
+The maximum 2 battery joltage is: 17095
+The 12 battery joltage is: 1.68794698570517E14
+
+
+    *** Day 4 ***
+wrong:

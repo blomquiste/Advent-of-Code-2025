@@ -7,6 +7,6 @@ public class Main {
         //Day2.findInvalidIDs();
 
         /* Day 3 */
-        Day3.calculateJoltage();
+        Day3.turnOnBattery();
     }
 }

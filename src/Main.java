@@ -7,6 +7,9 @@ public class Main {
         //Day2.findInvalidIDs();
 
         /* Day 3 */
-        Day3.turnOnBattery();
+        //Day3.turnOnBattery();
+
+        /* Day 4 */
+        Day4.optimizeForklifts();
     }
 }
